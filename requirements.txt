@@ -1,0 +1,5 @@
+omegaconf
+torch
+safetensors
+huggingface_hub
+opencv-contrib-python-headless
