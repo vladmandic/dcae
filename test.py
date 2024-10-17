@@ -59,7 +59,6 @@ if __name__ == '__main__':
         f1 = os.path.join(output_dir, f'{fn}.png')
         cv2.imwrite(f1, cv2.cvtColor(image, cv2.COLOR_BGR2RGB))
         f2 = os.path.join(output_dir, f'{fn}-{model}.png')
-        ae.encode
         cv2.imwrite(f2, cv2.cvtColor(output, cv2.COLOR_BGR2RGB))
         print(f'  images: input={f1} output={f2}')
         i += 1
