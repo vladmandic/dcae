@@ -39,3 +39,5 @@ For more detailed example, see `test.py`
 - despite large size for an autoencoder, its fast and has relative low resource requirements  
   typical encode/decode is ~0.1s for 1k image on RTX4090  
 - without any tiling it can do native 4k encode/decode in ~0.5s using 20GB VRAM  
+
+![dcae](https://github.com/user-attachments/assets/37c52565-7bcf-4a36-ae73-2a92e2a7fb94)
