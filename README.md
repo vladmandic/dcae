@@ -55,4 +55,15 @@ Will run encode/decode on a given image using all available DC-AE models and oth
 - `madebyollin/taesd`, `madebyollin/taesdxl`, `madebyollin/sdxl-vae-fp16-fix`,
 - `ostris/vae-kl-f8-d16`, `cross-attention/asymmetric-autoencoder-kl-x-1-5`,
 
-Examples:
+### Examples
+
+![helmet-vae-grid](https://github.com/user-attachments/assets/5804f703-3954-4b06-9777-89db1f258f77)
+![afghan-vae-grid](https://github.com/user-attachments/assets/44a0f8a5-7317-4d6d-8af4-95c32db5aaa8)
+![cara-vae-grid](https://github.com/user-attachments/assets/d454c9e0-45ad-468a-a78a-2ea2782c9f4d)
+![alla-vae-grid](https://github.com/user-attachments/assets/4d80c63d-946d-4908-8fe0-214174f406fd)
+![asian-vae-grid](https://github.com/user-attachments/assets/8886d989-0194-401e-8ed7-eb00150aaa01)
+![paint-vae-grid](https://github.com/user-attachments/assets/af8808d0-5340-428a-8672-d03dcbd34246)
+
+### Originals
+
+[Link](https://github.com/vladmandic/dcae/issues/1)
