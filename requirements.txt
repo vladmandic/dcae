@@ -1,5 +1,12 @@
+# dcae requirements
 omegaconf
 torch
 safetensors
 huggingface_hub
 opencv-contrib-python-headless
+
+# used by test app only
+Pillow
+rich
+accelerate
+diffusers

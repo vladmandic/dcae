@@ -25,4 +25,4 @@ class DCAE(dc_ae.DCAE):
         model_path = hf_hub_download(repo_id, filename="model.safetensors", cache_dir=cache_dir)
         state_dict = safetensors.torch.load_file(model_path, device='cpu')
         self.load_state_dict(state_dict)
-        self = self.to(device=device, dtype=dtype).eval()
+        self = self.to(device=device, dtype=dtype).eval() # pylint: disable=self-cls-assignment

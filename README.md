@@ -1,10 +1,10 @@
-# DCAE
+# AutoEncoders
 
-## Credit
+## DC-AE
 
-- [EfficientViT DC-AE](https://github.com/mit-han-lab/efficientvit)
+### What's Changed?
 
-## What's Changed?
+From original EfficientViT DC-AE code...
 
 - Removed internal dependencies on anything thats not pure dc-ae inference code  
 - Refactored to work as standalone module with relative imports  
@@ -13,7 +13,7 @@
 - Added single class for anything related to dc-ae  
 - Unified device/dtype handling  
 
-## Usage
+### Usage
 
 ```py
 from dcae import DCAE
@@ -22,9 +22,11 @@ encoded = ae.encode(tensor)
 decoded = ae.decode(encoded)
 ```
 
-For more detailed example, see `test.py`
+### Credit
 
-## Notes
+- [EfficientViT DC-AE](https://github.com/mit-han-lab/efficientvit)
+
+### Notes
 
 - 2 variants: `in` and `mix`  
   no documentation on how they differ?  
@@ -40,4 +42,17 @@ For more detailed example, see `test.py`
   typical encode/decode is ~0.1s for 1k image on RTX4090  
 - without any tiling it can do native 4k encode/decode in ~0.5s using 20GB VRAM  
 
-![dcae](https://github.com/user-attachments/assets/37c52565-7bcf-4a36-ae73-2a92e2a7fb94)
+-----------
+
+## Comparing AutoEncoders
+
+> `python compare.py <image>`
+
+Will run encode/decode on a given image using all available DC-AE models and other known autoencoders and produce an image grid with memory usage and time taken for each:
+
+- `dc-ae-f32c32-in-1.0`, `dc-ae-f64c128-in-1.0`, `dc-ae-f128c512-in-1.0`,
+- `dc-ae-f32c32-mix-1.0`, `dc-ae-f64c128-mix-1.0`, `dc-ae-f128c512-mix-1.0`,
+- `madebyollin/taesd`, `madebyollin/taesdxl`, `madebyollin/sdxl-vae-fp16-fix`,
+- `ostris/vae-kl-f8-d16`, `cross-attention/asymmetric-autoencoder-kl-x-1-5`,
+
+Examples:
