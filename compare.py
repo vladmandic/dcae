@@ -42,11 +42,12 @@ if __name__ == '__main__':
         sys.exit(1)
     sys.argv.pop(0)
 
+    rprint(f'start: repeats={repeat} device={device} dtype={dtype} clip={clip} diff={diff} ext={ext}')
+    rprint(f'models: {models}')
     for fn in sys.argv:
         base = os.path.splitext(os.path.basename(fn))[0]
         out = f'{base}-vae-grid.{ext}'
         image = get_image(fn)
-        rprint(f'start: repeats={repeat} device={device} dtype={dtype} models={models} clip={clip}')
         rprint(f'image: input="{fn}" shape={image.shape}')
 
         if diff:
@@ -79,10 +80,10 @@ if __name__ == '__main__':
                 ae.scale = 8
             t2 = time.time()
             m2 = mem()
-            rprint(f'load: model={model} scale={ae.scale} time={t2-t1:.3f} mem={m2-m1}')
+            rprint(f' load: model={model} scale={ae.scale} time={t2-t1:.3f} mem={m2-m1}')
 
             tensor, image = get_tensor(image, ae.scale, device, dtype)
-            tensor = 0.5 * tensor + 0.5
+            tensor = 0.5 * tensor + 0.5 # normalize
 
             msg = ''
             try:
@@ -108,7 +109,9 @@ if __name__ == '__main__':
                     m4 = mem(reset=False)
                     rprint(f'  decode: shape={tensors.shape} time={t4-t3:.3f} mem={m4-m3} repeat={n}')
             except Exception as e:
-                tensors = [torch.zeros(3, 256, 256, device=device, dtype=dtype)]
+                t4 = time.time()
+                m4 = mem(reset=False)
+                tensors = [torch.zeros(image.shape[2], image.shape[0], image.shape[1], device=device, dtype=dtype)]
                 msg = e.__class__.__name__
                 rprint(f'  error: model={model} {e}')
 
@@ -117,14 +120,17 @@ if __name__ == '__main__':
             if clip:
                 output = output.clip(0, 1)
 
+            # difference image from original
             output = (255 * output).astype('uint8')
             delta = cv2.absdiff(image, output)
 
+            # calculate stats
             diff_score = delta.sum() / (255 * image.shape[0] * image.shape[1] * image.shape[2])
             ssim_score = skimage.metrics.structural_similarity(image, output, channel_axis=2)
             mse_score = round(skimage.metrics.mean_squared_error(image, output))
             fid_score = fid(image, output)
-            stats = f'\ndelta {diff_score:.4f}\nssim {ssim_score:.4f}\nmse {mse_score}\nfid {fid_score:.1f}'
+            stats = f'\ndelta {diff_score:.4f}\nssim {ssim_score:.4f}\nmse {mse_score}\nfid {fid_score:.2f}'
+            rprint(f'  stats: delta={diff_score:.4f} ssim={ssim_score:.4f} mse={mse_score} fid={fid_score:.2f}')
 
             images.append(Image.fromarray(output))
             labels.append(f'{os.path.basename(model)}\n\nmem {m4}\ntime {t4-t2:.3f}{stats if not diff else ""}\n{msg}')

@@ -64,12 +64,15 @@ Supported models:
 
 ### Examples
 
-![helmet-vae-grid](https://github.com/user-attachments/assets/5804f703-3954-4b06-9777-89db1f258f77)
-![afghan-vae-grid](https://github.com/user-attachments/assets/44a0f8a5-7317-4d6d-8af4-95c32db5aaa8)
-![cara-vae-grid](https://github.com/user-attachments/assets/d454c9e0-45ad-468a-a78a-2ea2782c9f4d)
-![alla-vae-grid](https://github.com/user-attachments/assets/4d80c63d-946d-4908-8fe0-214174f406fd)
-![asian-vae-grid](https://github.com/user-attachments/assets/8886d989-0194-401e-8ed7-eb00150aaa01)
-![paint-vae-grid](https://github.com/user-attachments/assets/af8808d0-5340-428a-8672-d03dcbd34246)
+![helmet-vae-grid](https://github.com/user-attachments/assets/ce9a247f-f4b4-4f23-bb13-cb89d091f92f)
+![alla-vae-grid](https://github.com/user-attachments/assets/b054f4f0-19d3-419a-bac4-e57c9a575bf3)
+![asian-vae-grid](https://github.com/user-attachments/assets/be2479e4-6991-4bff-a591-789371f103bf)
+![cara-vae-grid](https://github.com/user-attachments/assets/5972005f-8682-4991-b593-ad022d920464)
+![afghan](https://github.com/user-attachments/assets/c439639e-0a94-43ad-9745-7d8a16c0c027)
+![paint-vae-grid](https://github.com/user-attachments/assets/256ccc2a-cb67-40b5-87ee-449a8cf0754a)
+![smoke-vae-grid](https://github.com/user-attachments/assets/486455a7-b4bb-42f3-979d-99688ab2840c)
+![robot-vae-grid](https://github.com/user-attachments/assets/79778e82-2513-4c36-b213-2936552b5ad0)
+![mdd-vae-grid](https://github.com/user-attachments/assets/6c226a6d-d67c-4896-84a2-018177c9a9e8)
 
 ### Originals
 
