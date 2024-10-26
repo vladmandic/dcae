@@ -65,10 +65,10 @@ Supported models:
 ### Examples
 
 ![helmet-vae-grid](https://github.com/user-attachments/assets/ce9a247f-f4b4-4f23-bb13-cb89d091f92f)
+![afghan-vae-grid](https://github.com/user-attachments/assets/de8d4376-6c6f-42d8-9143-db2dc92986f0)
 ![alla-vae-grid](https://github.com/user-attachments/assets/b054f4f0-19d3-419a-bac4-e57c9a575bf3)
 ![asian-vae-grid](https://github.com/user-attachments/assets/be2479e4-6991-4bff-a591-789371f103bf)
 ![cara-vae-grid](https://github.com/user-attachments/assets/5972005f-8682-4991-b593-ad022d920464)
-![afghan](https://github.com/user-attachments/assets/c439639e-0a94-43ad-9745-7d8a16c0c027)
 ![paint-vae-grid](https://github.com/user-attachments/assets/256ccc2a-cb67-40b5-87ee-449a8cf0754a)
 ![smoke-vae-grid](https://github.com/user-attachments/assets/486455a7-b4bb-42f3-979d-99688ab2840c)
 ![robot-vae-grid](https://github.com/user-attachments/assets/79778e82-2513-4c36-b213-2936552b5ad0)
