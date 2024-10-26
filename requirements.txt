@@ -10,3 +10,6 @@ Pillow
 rich
 accelerate
 diffusers
+numpy
+scikit-image
+torchmetrics[image]

@@ -48,7 +48,14 @@ decoded = ae.decode(encoded)
 
 > `python compare.py <image>`
 
-Will run encode/decode on a given image using all available DC-AE models and other known autoencoders and produce an image grid with memory usage and time taken for each:
+Will run encode/decode on a given image using all available DC-AE models and other known autoencoders and produce an image grid with:
+
+- image after encode/decode
+- memory usage and time taken for each
+- diff image from original
+- diff, mse, ssim and fid scores
+
+Supported models:
 
 - `dc-ae-f32c32-in-1.0`, `dc-ae-f64c128-in-1.0`, `dc-ae-f128c512-in-1.0`,
 - `dc-ae-f32c32-mix-1.0`, `dc-ae-f64c128-mix-1.0`, `dc-ae-f128c512-mix-1.0`,

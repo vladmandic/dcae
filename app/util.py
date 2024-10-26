@@ -26,7 +26,7 @@ def get_tensor(image, scale: int = 8, device: torch.device = None, dtype: torch.
     image = cv2.resize(image, (scale * (h // scale), scale * (w // scale)))
     tensor = torch.tensor(image, dtype=torch.float32).permute(2, 0, 1).unsqueeze(0) / 255
     tensor = tensor.to(device, dtype)
-    return tensor
+    return tensor, image
 
 
 def mem(reset=True):
