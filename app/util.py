@@ -5,7 +5,7 @@ from rich import print as rprint
 import torch
 
 
-def get_image(fn):
+def get_image(fn: str):
     if not os.path.isfile(fn):
         rprint(f'file not found: {fn}')
         sys.exit(1)
@@ -21,7 +21,7 @@ def get_image(fn):
     return image
 
 
-def get_tensor(image, scale, device, dtype):
+def get_tensor(image, scale: int = 8, device: torch.device = None, dtype: torch.dtype = None):
     w, h, _ = image.shape
     image = cv2.resize(image, (scale * (h // scale), scale * (w // scale)))
     tensor = torch.tensor(image, dtype=torch.float32).permute(2, 0, 1).unsqueeze(0) / 255
