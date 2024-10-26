@@ -12,9 +12,10 @@ from app.grid import grid
 from app.util import get_image, get_tensor, mem
 
 
-repeat = 3
-ext = 'jpg'
-models = [
+repeat = 3 # run n runs to get time/memory average
+clip = True # clip output to 0-1
+ext = 'jpg' # output image format
+models = [ # models to test
     'dc-ae-f32c32-in-1.0', 'dc-ae-f64c128-in-1.0', 'dc-ae-f128c512-in-1.0',
     'dc-ae-f32c32-mix-1.0', 'dc-ae-f64c128-mix-1.0', 'dc-ae-f128c512-mix-1.0',
     'madebyollin/taesd', 'madebyollin/taesdxl', 'madebyollin/sdxl-vae-fp16-fix',
@@ -37,7 +38,7 @@ if __name__ == '__main__':
     base = os.path.splitext(os.path.basename(fn))[0]
     out = f'{base}-vae-grid.{ext}'
     image = get_image(fn)
-    rprint(f'start: repeats={repeat} device={device} dtype={dtype} models={models}')
+    rprint(f'start: repeats={repeat} device={device} dtype={dtype} models={models} clip={clip}')
     rprint(f'image: input="{fn}" shape={image.shape}')
 
     images = [Image.fromarray(image)]
@@ -91,9 +92,12 @@ if __name__ == '__main__':
         except Exception as e:
             tensors = [torch.zeros(3, 256, 256, device=device, dtype=dtype)]
             msg = e.__class__.__name__
-            rprint(f'  error: {e}')
+            rprint(f'  error: model={model} {e}')
 
-        output = (tensors[0].permute(1, 2, 0).cpu().float().numpy().clip(0, 1) * 255).astype('uint8')
+        output = tensors[0].permute(1, 2, 0).cpu().float().numpy()
+        if clip:
+            output = output.clip(0, 1)
+        output = (255 * output).astype('uint8')
         images.append(Image.fromarray(output))
         labels.append(f'{os.path.basename(model)}\n\nmem {m4}\ntime {t4-t2:.3f}\n{msg}')
         ae = None
