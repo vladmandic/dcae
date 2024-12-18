@@ -29,7 +29,8 @@ decoded = ae.decode(encoded)
 ### Notes
 
 - 2 variants: `in` and `mix`  
-  no documentation on how they differ?  
+  They have different scaling factors.
+  For example `f32c32-mix-1.0` has scaling factor as `0.4552` but `f32c32-in-1.0` has `0.3189`
 - each variant in 3 flavors: `f32c32`, `f64c128`, `f128c512`  
   with increasing number of internal stages  
   resulting sizes are same as each stage compresses by 2* and adds 2** channels:  
